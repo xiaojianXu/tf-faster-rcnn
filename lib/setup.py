@@ -53,10 +53,10 @@ def locate_cuda():
 
     return cudaconfig
 #CUDA = locate_cuda()
-CUDA = {'home':./usr/local/cuda-8.0,#2018/10/16 edit,google colab
-		'nvcc':./usr/local/cuda-8.0/bin/nvcc,
-		'include':./usr/local/cuda-8.0/include,
-		'lib64':./usr/local/cuda-8.0/lib64}
+CUDA = {'home':usr/local/cuda-8.0,#2018/10/16 edit,google colab
+		'nvcc':usr/local/cuda-8.0/bin/nvcc,
+		'include':usr/local/cuda-8.0/include,
+		'lib64':usr/local/cuda-8.0/lib64}
 
 # Obtain the numpy include directory.  This logic works across numpy versions.
 try:
