@@ -52,7 +52,11 @@ def locate_cuda():
             raise EnvironmentError('The CUDA %s path could not be located in %s' % (k, v))
 
     return cudaconfig
-CUDA = locate_cuda()
+#CUDA = locate_cuda()
+CUDA = {'home':/usr/local/cuda-8.0,#2018/10/16修改,google colab
+		'nvcc':/usr/local/cuda-8.0/bin/nvcc,
+		'include':/usr/local/cuda-8.0/include,
+		'lib64':/usr/local/cuda-8.0/lib64}
 
 # Obtain the numpy include directory.  This logic works across numpy versions.
 try:
@@ -127,7 +131,7 @@ ext_modules = [
         # we're only going to use certain compiler args with nvcc and not with gcc
         # the implementation of this trick is in customize_compiler() below
         extra_compile_args={'gcc': ["-Wno-unused-function"],
-                            'nvcc': ['-arch=sm_52',
+                            'nvcc': ['-arch=sm_37',#2018/10/16修改，sm_52 -> sm_37,google colab
                                      '--ptxas-options=-v',
                                      '-c',
                                      '--compiler-options',
